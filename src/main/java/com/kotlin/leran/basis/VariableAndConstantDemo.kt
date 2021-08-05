@@ -22,7 +22,7 @@ class VariableAndConstantDemo{
         //没有初始化的时候，必须声明类型
         var varC: Float
         varC = 12.3f
-        varC += 1
+        varC += 1.0f
 
         println("varA => $varA \t varB => $varB \t varC => $varC")
 

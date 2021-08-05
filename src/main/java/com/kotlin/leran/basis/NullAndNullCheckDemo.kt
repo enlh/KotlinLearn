@@ -26,7 +26,15 @@ class NullAndNullCheckDemo {
     private fun operatorEvils2() {
         val testStr : String? = null
 
-        println(testStr!!.length)
+        // println(testStr!!.length)
+        // 会抛出空指针异常
+        /**
+         * Exception in thread "main" kotlin.KotlinNullPointerException
+        at com.kotlin.leran.basis.NullAndNullCheckDemo.operatorEvils2(NullAndNullCheckDemo.kt:29)
+        at com.kotlin.leran.basis.NullAndNullCheckDemo.test(NullAndNullCheckDemo.kt:179)
+        at com.kotlin.leran.TestApplicationKt.main(TestApplication.kt:47)
+
+         */
     }
 
     /**

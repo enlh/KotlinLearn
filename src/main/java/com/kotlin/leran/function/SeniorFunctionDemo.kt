@@ -8,7 +8,7 @@ package com.kotlin.leran.function
  */
 
 
-class SeniorFunctionDemo{
+class SeniorFunctionDemo {
 
     /**
      * 测试T.let()函数，以及查看其和T.also()和`T.apply()`函数的区别
@@ -96,7 +96,7 @@ class SeniorFunctionDemo{
      * 测试repeat()高阶函数
      */
     private fun testRepeat() {
-        repeat(5){
+        repeat(5) {
             println("我是重复的第${it + 1}次，我的索引为：$it")
         }
     }
@@ -105,20 +105,20 @@ class SeniorFunctionDemo{
      * 测试自定义的高阶函数
      */
     private fun testDemo() {
-        val result1 = resultByOpt(1,2){
-            num1, num2 ->  num1 + num2
+        val result1 = resultByOpt(1, 2) { num1, num2 ->
+            num1 + num2
         }
 
-        val result2 = resultByOpt(3,4){
-            num1, num2 ->  num1 - num2
+        val result2 = resultByOpt(3, 4) { num1, num2 ->
+            num1 - num2
         }
 
-        val result3 = resultByOpt(5,6){
-            num1, num2 ->  num1 * num2
+        val result3 = resultByOpt(5, 6) { num1, num2 ->
+            num1 * num2
         }
 
-        val result4 = resultByOpt(6,3){
-            num1, num2 ->  num1 / num2
+        val result4 = resultByOpt(6, 3) { num1, num2 ->
+            num1 / num2
         }
 
         println("result1 = $result1")
@@ -127,8 +127,8 @@ class SeniorFunctionDemo{
         println("result4 = $result4")
     }
 
-    private fun resultByOpt(num1 : Int , num2 : Int , result : (Int ,Int) -> Int) : Int{
-        return result(num1,num2)
+    private fun resultByOpt(num1: Int, num2: Int, result: (Int, Int) -> Int): Int {
+        return result(num1, num2)
     }
 
     private fun testLock() {
@@ -144,23 +144,23 @@ class SeniorFunctionDemo{
     private fun testWith() {
         val str = "kotlin"
         with(str) {
-            println( "length = ${this.length}" )
-            println( "first = ${first()}")
-            println( "last = ${last()}" )
+            println("length = ${this.length}")
+            println("first = ${first()}")
+            println("last = ${last()}")
         }
 
-        val newStr : String? = "kotlin"
+        val newStr: String? = "kotlin"
 
-        with(newStr){
-            println( "length = ${this?.length}" )
-            println( "first = ${this?.first()}")
-            println( "last = ${this?.last()}" )
+        with(newStr) {
+            println("length = ${this?.length}")
+            println("first = ${this?.first()}")
+            println("last = ${this?.last()}")
         }
 
         newStr?.run {
-            println( "length = $length" )
-            println( "first = ${first()}")
-            println( "last = ${last()}" )
+            println("length = $length")
+            println("first = ${first()}")
+            println("last = ${last()}")
         }
     }
 
@@ -170,9 +170,9 @@ class SeniorFunctionDemo{
     private fun testRun2() {
         val str = "kotlin"
         str.run {
-            println( "length = ${this.length}" )
-            println( "first = ${first()}")
-            println( "last = ${last()}" )
+            println("length = ${this.length}")
+            println("first = ${first()}")
+            println("last = ${last()}")
         }
     }
 
@@ -182,7 +182,7 @@ class SeniorFunctionDemo{
     private fun testRun1() {
         val str = "kotlin"
 
-        run{
+        run {
             val str = "java"
             println("str = $str")
         }
@@ -191,7 +191,7 @@ class SeniorFunctionDemo{
 
         val index = 3
         val num = run {
-            when(index){
+            when (index) {
                 0 -> "kotlin"
                 1 -> "java"
                 2 -> "php"
@@ -207,10 +207,17 @@ class SeniorFunctionDemo{
      * 测试TODO函数
      */
     private fun testTODO() {
-        TODO("测试TODO函数，是否显示抛出错误")
+        // TODO("测试TODO函数，是否显示抛出错误")
+        // 会抛出NotImplementedError错误
+        /**
+         * Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: 测试TODO函数，是否显示抛出错误
+        at com.kotlin.leran.function.SeniorFunctionDemo.testTODO(SeniorFunctionDemo.kt:210)
+        at com.kotlin.leran.function.SeniorFunctionDemo.test(SeniorFunctionDemo.kt:216)
+        at com.kotlin.leran.TestApplicationKt.main(TestApplication.kt:94)
+         */
     }
 
-    fun test(){
+    fun test() {
         testLock()
         testDemo()
         testTODO()
