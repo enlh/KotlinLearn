@@ -15,15 +15,16 @@ class OperatorStringDemo {
      * 字符串替换
      */
     private fun replaceStr() {
+        println("-----------   ${Thread.currentThread().stackTrace[1].methodName}()   ------------")
         val str = "Kotlin is a very good programming language"
 
         // oldChar： 要替换的字符，newChar: 替换的字符
         println("-----------   1、replace()   ------------")
-        println(str.replace('a','A',true))
+        println(str.replace('a', 'A', true))
 
         println("-----------   2、replace()   ------------")
         // oldValue: 要替换的字符串， newValue: 替换的字符串
-        println(str.replace("Kotlin","Java"))
+        println(str.replace("Kotlin", "Java"))
 
         println("-----------   3、replace()   ------------")
         /*
@@ -33,7 +34,7 @@ class OperatorStringDemo {
 
          */
         val str2 = "1234a kotlin 5678 3 is 4"
-        println(str2.replace(Regex("[0-9]+"),"kotlin"))
+        println(str2.replace(Regex("[0-9]+"), "kotlin"))
 
         println("-----------   4、replace()   ------------")
         /*
@@ -46,88 +47,102 @@ class OperatorStringDemo {
 
         // replaceFirst
         println("-----------   replaceFirst()   ------------")
-        println(str.replaceFirst('a','A'))
-        println(str.replaceFirst( "Kotlin","Java"))
+        println(str.replaceFirst('a', 'A'))
+        println(str.replaceFirst("Kotlin", "Java"))
 
 
         // replaceBefore
         println("-----------   replaceBefore()   ------------")
-        println(str.replaceBefore('a',"AA"))
-        println(str.replaceBefore("Kotlin","Java"))
+        println(str.replaceBefore('a', "AA"))
+        println(str.replaceBefore("Kotlin", "Java"))
 
         // replaceBeforeLast
         println("-----------   replaceBeforeLast()   ------------")
-        println(str.replaceBeforeLast('a',"AA"))
-        println(str.replaceBeforeLast("Kotlin","Java"))
+        println(str.replaceBeforeLast('a', "AA"))
+        println(str.replaceBeforeLast("Kotlin", "Java"))
 
         // replaceAfter
         println("-----------   replaceAfter()   ------------")
-        println(str.replaceAfter('a',"AA"))
-        println(str.replaceAfter("Kotlin","Java"))
+        println(str.replaceAfter('a', "AA"))
+        println(str.replaceAfter("Kotlin", "Java"))
 
         // replaceAfterLast
         println("-----------   replaceAfterLast()   ------------")
-        println(str.replaceAfterLast('a',"AA"))
-        println(str.replaceAfterLast("Kotlin","Java"))
+        println(str.replaceAfterLast('a', "AA"))
+        println(str.replaceAfterLast("Kotlin", "Java"))
     }
 
     /**
      * 字符串分割
      */
     private fun spiltStr() {
+        println("-----------   ${Thread.currentThread().stackTrace[1].methodName}()   ------------")
         val str1 = "Kotlin is a very good programming language"
 
         val list1 = str1.split(' ')
-        for (str in list1){
+        for (str in list1) {
             print("$str \t")
         }
 
         println()
 
         val list2 = str1.split(" ")
-        for (str in list2){
+        for (str in list2) {
             print("$str \t")
         }
 
         println()
 
         val str2 = "1 kotlin 2 java 3 Lua 4 JavaScript"
+        // 正则表达式
         val list3 = str2.split(Regex("[0-9]+"))
-        for (str in list3){
+        for (str in list3) {
             print("$str \t")
         }
 
         println()
 
         val list4 = str2.split(Pattern.compile("[0-9]+"))
-        for (str in list4){
+        for (str in list4) {
             print("$str \t")
         }
 
         println()
 
         val str3 = "a b c d e f g h 2+3+4+5"
-        val list5 = str3.split(' ','+')
-        for (str in list5){
+        val list5 = str3.split(' ', '+')
+        for (str in list5) {
             print("$str \t")
         }
+
+        println()
+
+        // 解构语法
+        val data = "jcak,rose,tom"
+        val (data1: String, data2: String, data3: String) = data.split(",")
+        println("$data1 $data2 $data3")
     }
 
     /**
      * 字符串截取
      */
     private fun subStr() {
+        println("-----------   ${Thread.currentThread().stackTrace[1].methodName}()   ------------")
         val str = "Kotlin is a very good programming language"
 
-        println(str.substring(10))
-        println(str.substring(0,15))
-        println(str.substring(IntRange(0,15)))
+        val index: Int = str.indexOfFirst { it == 'a' }
+        println(str.substring(0 until index))
 
-        println(str.subSequence(0,15))
-        println(str.subSequence(IntRange(0,15)))
+        println(str.substring(10))
+        println(str.substring(0, 15))
+        println(str.substring(IntRange(0, 15)))
+
+        println(str.subSequence(0, 15))
+        println(str.subSequence(IntRange(0, 15)))
     }
 
     private fun optStr() {
+        println("-----------   ${Thread.currentThread().stackTrace[1].methodName}()   ------------")
 
         // 字符串链接
         val oldStr = "kotlin"
@@ -144,20 +159,21 @@ class OperatorStringDemo {
 
         println(str.startsWith('k'))
         println(str.startsWith("kot"))
-        println(str.startsWith("lin",3))
+        println(str.startsWith("lin", 3))
     }
 
     /**
      * 字符串查找
      */
-    private fun findStr(){
+    private fun findStr() {
+        println("-----------   ${Thread.currentThread().stackTrace[1].methodName}()   ------------")
 
         val str = "kotlin very good"
 
         println(str.first())
         println(str.first { it == 't' })
         println(str.firstOrNull())
-        println(str.firstOrNull{it == 't'})
+        println(str.firstOrNull { it == 't' })
         println(str.last())
         println(str.last { it == 'o' })
         println(str.lastOrNull())
@@ -165,8 +181,8 @@ class OperatorStringDemo {
 
         println(str.indexOfFirst { it == 'o' })
         println(str.indexOfLast { it == 'o' })
-        println(str.indexOf('o',0))
-        println(str.indexOf("very",0))
+        println(str.indexOf('o', 0))
+        println(str.indexOf("very", 0))
         println(str.lastIndexOf('o'))
         println(str.lastIndexOf("good"))
     }
@@ -174,7 +190,8 @@ class OperatorStringDemo {
     /**
      * 统计
      */
-    private fun getStrLength(){
+    private fun getStrLength() {
+        println("-----------   ${Thread.currentThread().stackTrace[1].methodName}()   ------------")
 
         val str = "kotlin very good"
 
@@ -193,9 +210,10 @@ class OperatorStringDemo {
     /**
      * 检测字符串是否为空，或空字符串，以及是否包含了空格
      */
-    private fun checkNullStr(){
+    private fun checkNullStr() {
+        println("-----------   ${Thread.currentThread().stackTrace[1].methodName}()   ------------")
 
-        val str : String? = "kotlin"
+        val str: String? = "kotlin"
 
         println(str?.isEmpty())
         println(str?.isNotEmpty())
@@ -206,7 +224,27 @@ class OperatorStringDemo {
 
     }
 
-    fun test(){
+    /**
+     * 字符串比较
+     * == 比较字符串的字符时候匹配
+     * === 比较两个对象是否指向内存堆上同一个对象
+     *
+     * java中==比较对象引用 equals比较内容、结构
+     */
+    private fun checkEquals() {
+        println("-----------   ${Thread.currentThread().stackTrace[1].methodName}()   ------------")
+        val str1 = "Jack"
+        val str2 = "jack".capitalize()
+        val str3 = "Jack"
+
+        println("$str1 $str2")
+        println(str1 == str2)
+        println(str1 === str2)
+        // 字符串常量池
+        println(str1 === str3)
+    }
+
+    fun test() {
         checkNullStr()
         getStrLength()
         optStr()
@@ -214,6 +252,11 @@ class OperatorStringDemo {
         subStr()
         spiltStr()
         replaceStr()
+        checkEquals()
     }
 
+}
+
+fun main() {
+    OperatorStringDemo().test()
 }
