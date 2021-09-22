@@ -11,8 +11,8 @@ import com.kotlin.leran.design.policy.TestPolicy
 import com.kotlin.leran.design.policy.demo.IBuyTicket
 import com.kotlin.leran.function.BasisFunctionDemo
 import com.kotlin.leran.function.InfixFunDemo
-import com.kotlin.leran.function.SeniorFunctionDemo
 import com.kotlin.leran.function.lambda.LambdaDemo
+import com.kotlin.leran.function.standard.SeniorFunctionDemo
 import com.kotlin.leran.other.CollectionDemo
 import com.kotlin.leran.other.OperaCollectionDemo
 

@@ -10,6 +10,7 @@ class Other{    // 外部类
     val numOther = 1
     lateinit var listener : OnClickListener
 
+    // 一个类只对另外一个类有用，那么就可以将其嵌入到该类中使用
     class Nested {  // 嵌套类
         fun init(){
             println("init")

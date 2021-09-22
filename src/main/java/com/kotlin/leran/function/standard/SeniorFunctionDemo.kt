@@ -1,4 +1,4 @@
-package com.kotlin.leran.function
+package com.kotlin.leran.function.standard
 
 /**
  * 描述 ：    高阶函数详解
@@ -211,8 +211,8 @@ class SeniorFunctionDemo {
         // 会抛出NotImplementedError错误
         /**
          * Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: 测试TODO函数，是否显示抛出错误
-        at com.kotlin.leran.function.SeniorFunctionDemo.testTODO(SeniorFunctionDemo.kt:210)
-        at com.kotlin.leran.function.SeniorFunctionDemo.test(SeniorFunctionDemo.kt:216)
+        at com.kotlin.leran.function.standard.SeniorFunctionDemo.testTODO(SeniorFunctionDemo.kt:210)
+        at com.kotlin.leran.function.standard.SeniorFunctionDemo.test(SeniorFunctionDemo.kt:216)
         at com.kotlin.leran.TestApplicationKt.main(TestApplication.kt:94)
          */
     }
